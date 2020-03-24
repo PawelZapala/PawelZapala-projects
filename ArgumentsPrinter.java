@@ -4,5 +4,6 @@ public class ArgumentsPrinter {
         (int i = args.length-1; i >= 0; i--) {
             System.out.println(args[i]);
         }
+	System.out.println("Some changes");
     }
 }
