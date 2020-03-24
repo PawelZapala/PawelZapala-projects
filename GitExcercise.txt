@@ -1,0 +1,237 @@
+pawel@LAPTOP-6NL3UP2P MINGW64 ~ (master)
+$ cd gitprojects
+
+pawel@LAPTOP-6NL3UP2P MINGW64 ~/gitprojects (master)
+$ git clone https://github.com/PawelZapala/PawelZapala-projects.git
+Cloning into 'PawelZapala-projects'...
+remote: Enumerating objects: 13, done.
+remote: Counting objects: 100% (13/13), done.
+remote: Compressing objects: 100% (12/12), done.
+remote: Total 13 (delta 2), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (13/13), 3.33 KiB | 77.00 KiB/s, done.
+
+pawel@LAPTOP-6NL3UP2P MINGW64 ~/gitprojects (master)
+$ git status
+warning: could not open directory 'Cookies/': Permission denied
+warning: could not open directory 'Dane aplikacji/': Permission denied
+warning: could not open directory 'Menu Start/': Permission denied
+warning: could not open directory 'Moje dokumenty/': Permission denied
+warning: could not open directory 'NetHood/': Permission denied
+warning: could not open directory 'PrintHood/': Permission denied
+warning: could not open directory 'Recent/': Permission denied
+warning: could not open directory 'SendTo/': Permission denied
+warning: could not open directory 'Szablony/': Permission denied
+warning: could not open directory 'Ustawienia lokalne/': Permission denied
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ../.IdeaIC2019.3/
+        ../.bash_history
+        ../.gitconfig
+        ../3D Objects/
+        ../AppData/
+        ../Contacts/
+        ../Desktop/
+        ../Documents/
+        ../Downloads/
+        ../Favorites/
+        ../IdeaProjects/
+        ../IntelGraphicsProfiles/
+        ../Links/
+        ../MicrosoftEdgeBackups/
+        ../Music/
+        ../NTUSER.DAT
+        ../NTUSER.DAT{ac391214-dbdf-11e9-944e-809133bd208c}.TM.blf
+        ../NTUSER.DAT{ac391214-dbdf-11e9-944e-809133bd208c}.TMContainer00000000000000000001.regtrans-ms
+        ../NTUSER.DAT{ac391214-dbdf-11e9-944e-809133bd208c}.TMContainer00000000000000000002.regtrans-ms
+        ../OneDrive/
+        ../Pictures/
+        ../Saved Games/
+        ../Searches/
+        ../Videos/
+        ./
+        ../ntuser.dat.LOG1
+        ../ntuser.dat.LOG2
+        ../ntuser.ini
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+pawel@LAPTOP-6NL3UP2P MINGW64 ~/gitprojects (master)
+$ ^C
+
+pawel@LAPTOP-6NL3UP2P MINGW64 ~/gitprojects (master)
+$ cd PawelZapala-projects
+
+pawel@LAPTOP-6NL3UP2P MINGW64 ~/gitprojects/PawelZapala-projects (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+pawel@LAPTOP-6NL3UP2P MINGW64 ~/gitprojects/PawelZapala-projects (master)
+$ ^C
+
+pawel@LAPTOP-6NL3UP2P MINGW64 ~/gitprojects/PawelZapala-projects (master)
+$ ^C
+
+pawel@LAPTOP-6NL3UP2P MINGW64 ~/gitprojects/PawelZapala-projects (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ArgumentsPrinter.java
+        CountDown.java
+        Counter.java
+        DaysOfWeek.java
+        FindMaxElement.java
+        PasswordVerification.java
+        SwapElements.java
+        TrafficLight.java
+        Triangle.java
+        Weather.java
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+pawel@LAPTOP-6NL3UP2P MINGW64 ~/gitprojects/PawelZapala-projects (master)
+$ git add .
+
+pawel@LAPTOP-6NL3UP2P MINGW64 ~/gitprojects/PawelZapala-projects (master)
+$ git commit -m "add RandomNuber.class:
+>
+> git commiy -m "add RandomNumber.class"
+> "
+error: pathspec 'RandomNumber.class
+' did not match any file(s) known to git
+
+pawel@LAPTOP-6NL3UP2P MINGW64 ~/gitprojects/PawelZapala-projects (master)
+$ git commit -m "add RandomNumber.class"
+[master 5c29c7d] add RandomNumber.class
+ 10 files changed, 123 insertions(+)
+ create mode 100644 ArgumentsPrinter.java
+ create mode 100644 CountDown.java
+ create mode 100644 Counter.java
+ create mode 100644 DaysOfWeek.java
+ create mode 100644 FindMaxElement.java
+ create mode 100644 PasswordVerification.java
+ create mode 100644 SwapElements.java
+ create mode 100644 TrafficLight.java
+ create mode 100644 Triangle.java
+ create mode 100644 Weather.java
+
+pawel@LAPTOP-6NL3UP2P MINGW64 ~/gitprojects/PawelZapala-projects (master)
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+pawel@LAPTOP-6NL3UP2P MINGW64 ~/gitprojects/PawelZapala-projects (master)
+$ git push origin master
+Enumerating objects: 13, done.
+Counting objects: 100% (13/13), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (12/12), 2.79 KiB | 1.39 MiB/s, done.
+Total 12 (delta 0), reused 0 (delta 0)
+To https://github.com/PawelZapala/PawelZapala-projects.git
+   16a028b..5c29c7d  master -> master
+
+pawel@LAPTOP-6NL3UP2P MINGW64 ~/gitprojects/PawelZapala-projects (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   ArgumentsPrinter.java
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+pawel@LAPTOP-6NL3UP2P MINGW64 ~/gitprojects/PawelZapala-projects (master)
+$ git add ArgumentsPrinter.java
+
+pawel@LAPTOP-6NL3UP2P MINGW64 ~/gitprojects/PawelZapala-projects (master)
+$ git commit -m message "Changes to GitExcercise"
+error: pathspec 'Changes to GitExcercise' did not match any file(s) known to git
+
+pawel@LAPTOP-6NL3UP2P MINGW64 ~/gitprojects/PawelZapala-projects (master)
+$ git commit -m message "ArgumentsPrinter.class"
+error: pathspec 'ArgumentsPrinter.class' did not match any file(s) known to git
+
+pawel@LAPTOP-6NL3UP2P MINGW64 ~/gitprojects/PawelZapala-projects (master)
+$ git commit message -m "Changes to GitExcercise"
+error: pathspec 'message' did not match any file(s) known to git
+
+pawel@LAPTOP-6NL3UP2P MINGW64 ~/gitprojects/PawelZapala-projects (master)
+$ git commit -m "changes to GitExcercise"
+[master 2bb286e] changes to GitExcercise
+ 1 file changed, 1 insertion(+)
+
+pawel@LAPTOP-6NL3UP2P MINGW64 ~/gitprojects/PawelZapala-projects (master)
+$ git push origin master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 342 bytes | 342.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/PawelZapala/PawelZapala-projects.git
+   5c29c7d..2bb286e  master -> master
+
+pawel@LAPTOP-6NL3UP2P MINGW64 ~/gitprojects/PawelZapala-projects (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   CountDown.java
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+pawel@LAPTOP-6NL3UP2P MINGW64 ~/gitprojects/PawelZapala-projects (master)
+$ git checkout CountDown.java
+Updated 1 path from the index
+
+pawel@LAPTOP-6NL3UP2P MINGW64 ~/gitprojects/PawelZapala-projects (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+pawel@LAPTOP-6NL3UP2P MINGW64 ~/gitprojects/PawelZapala-projects (master)
+$ git log
+commit 2bb286e380b0c2ab7f4956668c19b03b7c7b549b (HEAD -> master, origin/master, origin/HEAD)
+Author: PawelZapala <pawelzapala007@gmail.com>
+Date:   Tue Mar 24 22:36:47 2020 +0100
+
+    changes to GitExcercise
+
+commit 5c29c7d34759a415a74cd6da97ef9acf0b27994a
+Author: PawelZapala <pawelzapala007@gmail.com>
+Date:   Tue Mar 24 21:56:46 2020 +0100
+
+    add RandomNumber.class
+
+commit 16a028bff8fbbc2dbbbde9caf1522d8c505dbca3
+Author: PawelZapala <62570108+PawelZapala@users.noreply.github.com>
+Date:   Tue Mar 24 21:30:03 2020 +0100
+
+    Add files via upload
+
+commit 04551a7dbbe5719b8b28e168a50b4e1d3c7a7e4d
+Author: PawelZapala <62570108+PawelZapala@users.noreply.github.com>
+Date:   Tue Mar 24 18:53:06 2020 +0100
+
+:
