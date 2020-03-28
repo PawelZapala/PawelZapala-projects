@@ -1,7 +1,8 @@
 public class WordSplit2 {
     public static void main(String[] args){
-        String s = args[0];
-        char word = s.charAt(0);
-        System.out.println(word);
+        for (int i = 0; i < args[0].length(); i++) {
+            char letter = args[0].charAt(i);
+            System.out.println(letter);
+        }
     }
 }
