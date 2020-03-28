@@ -1,11 +1,10 @@
 public class MinimumNumber {
     public static void main(String[] args) {
-        int[] numbers = {1, 2, -3, 10, -5, 0};
-        int minNumber = numbers[0];
-        for (int currentNumber : numbers) {
-            if (currentNumber < minNumber) {
+        int minNumber = Integer.parseInt(args[0]);
+        for (String currentNumberValue : args) {
+            int currentNumber = Integer.parseInt(currentNumberValue);
+            if (currentNumber < minNumber)
                 minNumber = currentNumber;
-            }
         }
         System.out.println(minNumber);
     }
