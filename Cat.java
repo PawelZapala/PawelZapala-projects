@@ -1,8 +1,16 @@
 public class Cat {
     private String name;
-
+    private boolean isHungry = true;
     public Cat(String name) {
         this.name = name;
+
+    }
+    public void isHungry() {
+        if (isHungry) {
+            System.out.println(name + " is hungry");
+        } else {
+            System.out.println(name + " is not hungry");
+        }
     }
 
     public void play(String toyName) {
@@ -10,14 +18,15 @@ public class Cat {
     }
 
     public void eat(String mealName) {
-        System.out.println(name + " is eating " + mealName);
-        boolean isHungry = false;
-        System.out.println(name + " is not hungry");
+        if (isHungry) {
+            System.out.println(name + " is eating " + mealName);
+            isHungry = false;
+        } else {
+            System.out.println(name + " is not hungry ");
+        }
     }
-
     public void sleep(Integer sleepTime) {
         System.out.println(name + " is going to sleep for " + sleepTime + " hours");
-        boolean isHungry = true;
-        System.out.println(name + " is hungry");
+        isHungry = true;
     }
 }
