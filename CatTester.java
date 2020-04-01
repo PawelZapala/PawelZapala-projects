@@ -4,9 +4,10 @@ public class CatTester {
 
         tom.eat("Milk");
         tom.eat("Mouse");
-        tom.isHungry();
         tom.sleep(5);
+        tom.isHungry();
         tom.eat("Mouse");
+        tom.isHungry();
         tom.play("Ball");
 
         }
