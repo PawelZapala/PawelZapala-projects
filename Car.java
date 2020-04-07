@@ -11,29 +11,15 @@ public class Car {
         this.remainingFuelAmount = fuelTankCapacity;
     }
 
+    public void startEngine() {
+        engine.startEngine();
+    }
+    public void stopEngine() {
+        engine.stopEngine();
+    }
     public void tank() {
         remainingFuelAmount = fuelTankCapacity;
         System.out.println(name + " has been tanked up");
-    }
-
-    public void startCar() {
-        if (engine.isStarted()) {
-            System.out.println(engine.getName() + " engine has been already started in " + name);
-        } else {
-            engine.setStarted(true);
-            System.out.println(name + " is starting " + engine.getName() + " engine.");
-            System.out.println(engine.getName() + " engine has been started.");
-        }
-    }
-
-    public void stopCar() {
-        if (engine.isStarted()) {
-            engine.setStarted(false);
-            System.out.println(name + " is stopping " + engine.getName() + " engine.");
-            System.out.println(engine.getName() + " has been stopped.");
-        } else {
-            System.out.println(engine.getName() + " has been already stopped.");
-        }
     }
 
     public void drive(int speed, double distance) {
