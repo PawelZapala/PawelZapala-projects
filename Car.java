@@ -12,10 +12,22 @@ public class Car {
     }
 
     public void startEngine() {
-        engine.startEngine();
+        if (!engine.isStarted()) {
+            System.out.println(name + " is starting " + engine.getName() + " engine.");
+            System.out.println(engine.getName() + " engine has been started.");
+            engine.startEngine();
+        }else{
+            System.out.println(engine.getName() + " engine has been already started in " + name);
+        }
     }
     public void stopEngine() {
-        engine.stopEngine();
+        if (engine.isStarted()) {
+            System.out.println(name + " is stopping " + engine.getName() + " engine.");
+            System.out.println(engine.getName() + " has been stopped.");
+            engine.stopEngine();
+        } else {
+            System.out.println(engine.getName() + " has been already stopped.");
+        }
     }
     public void tank() {
         remainingFuelAmount = fuelTankCapacity;
