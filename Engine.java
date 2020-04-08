@@ -28,22 +28,10 @@ public class Engine {
     }
 
     public void startEngine() {
-        if (!started) {
-            System.out.println(" is starting " + name + " engine.");
-            System.out.println(name + " engine has been started.");
             started = true;
-        } else {
-            System.out.println(name + " engine has been already started in ");
-        }
     }
 
     public void stopEngine() {
-        if (started) {
-            System.out.println(" is stopping " + name + " engine.");
-            System.out.println(name + " has been stopped.");
             started = false;
-        } else {
-            System.out.println(name + " has been already stopped.");
         }
     }
-}
