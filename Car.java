@@ -15,14 +15,16 @@ public class Car {
         if (!engine.isStarted()) {
             System.out.println(name + " is starting " + engine.getName() + " engine.");
             System.out.println(engine.getName() + " engine has been started.");
+            engine.startEngine();
         }else{
             System.out.println(engine.getName() + " engine has been already started in " + name);
         }
     }
     public void stopEngine() {
-        if (!engine.isStarted()) {
+        if (engine.isStarted()) {
             System.out.println(name + " is stopping " + engine.getName() + " engine.");
             System.out.println(engine.getName() + " has been stopped.");
+            engine.stopEngine();
         } else {
             System.out.println(engine.getName() + " has been already stopped.");
         }
@@ -33,7 +35,7 @@ public class Car {
     }
 
     public void drive(int speed, double distance) {
-        if (engine.isStarted()) {
+        if (!engine.isStarted()) {
             System.out.println(name + " can't be driven cause engine stopped.");
             return;
         }
