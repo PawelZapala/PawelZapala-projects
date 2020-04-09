@@ -21,12 +21,20 @@ public class Engine {
     public int getHorsePower() {
         return horsePower;
     }
+
     public boolean isStarted() {
-        if (!started){
+        return started;
+    }
+
+    public void startEngine() {
+        if (!started) {
             started = true;
-        }else{
+        }
+    }
+
+    public void stopEngine() {
+        if (started) {
             started = false;
         }
-        return started;
     }
 }
