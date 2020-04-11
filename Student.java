@@ -1,28 +1,27 @@
 import java.time.LocalDate;
 
 public class Student extends Person {
-    private String Faculty;
-    private LocalDate GraduateYear;
-    public Student (String FirstName, String LastName, LocalDate BirthDate, String Faculty, LocalDate GraduateYear){
-        super(FirstName, LastName, BirthDate);
-        this.Faculty = Faculty;
-        this.GraduateYear = GraduateYear;
+    private String faculty;
+    private LocalDate graduateYear;
+    public Student (String firstName, String lastName, LocalDate birthDate, String faculty, LocalDate graduateYear){
+        super(firstName, lastName, birthDate);
+        this.faculty = faculty;
+        this.graduateYear = graduateYear;
     }
 
     public String getFaculty() {
-        return Faculty;
+        return faculty;
     }
 
     public void setFaculty(String faculty) {
-        Faculty = faculty;
+        this.faculty = faculty;
     }
 
     public LocalDate getGraduateYear() {
-        return GraduateYear;
+        return graduateYear;
     }
 
     public void setGraduateYear(LocalDate graduateYear) {
-        GraduateYear = graduateYear;
+        this.graduateYear = graduateYear;
     }
-    
 }

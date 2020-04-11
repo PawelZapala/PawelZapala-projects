@@ -1,37 +1,37 @@
 import java.time.LocalDate;
 
 public class Person{
-    private String FirstName;
-    private String LastName;
-    private LocalDate BirthDate;
+    private String firstName;
+    private String lastName;
+    private LocalDate birthDate;
 
-    public Person (String FirstName, String LastName, LocalDate BirthDate){
-        this.FirstName = FirstName;
-        this.LastName = LastName;
-        this.BirthDate = BirthDate;
+    public Person (String firstName, String lastName, LocalDate birthDate){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
     }
 
     public String getFirstName() {
-        return FirstName;
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
-        FirstName = firstName;
+        this.firstName = firstName;
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        LastName = lastName;
+        this.lastName = lastName;
     }
 
     public LocalDate getBirthDate() {
-        return BirthDate;
+        return birthDate;
     }
 
     public void setBirthDate(LocalDate birthDate) {
-        BirthDate = birthDate;
+        this.birthDate = birthDate;
     }
 }
