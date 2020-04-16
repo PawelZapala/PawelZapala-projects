@@ -8,16 +8,13 @@ public class CarTester {
         HybridCar lexus = new HybridCar("Lexus", "UX");
         Car[] cars = {audi, tesla, lexus};
 
-        for (int i=0; i < cars.length; i++) {
-            if (cars[i] instanceof Tankable) {
-                audi.tank();
-                lexus.tank();
+        for (Car car : cars) {
+            if (car instanceof Tankable) {
+                ((Tankable) car).tank();
             }
-            if (cars[i] instanceof Chargeable) {
-                tesla.charge();
-                lexus.charge();
+            if (car instanceof Chargeable) {
+                ((Chargeable) car).charge();
             }
         }
     }
 }
-
