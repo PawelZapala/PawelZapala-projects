@@ -2,10 +2,17 @@ package OOP;
 
 public class PoliTester {
     public static void main(String[] args) {
-        Transport bmx = new Bicycle("bmx");
-        bmx.move("path");
-        PublicTransport L36 = new Tram("L36");
-        L36.move("rails");
-        L36.capacity(5);
+        Transport boeing = new Airplane("Boeing");
+        boeing.move();
+        Transport car = new Car("Audi");
+        car.move();
+        car.capacity(10);
+    }
+    public static void transportMoving(Transport transport){
+        if (transport instanceof Airplane) {
+            Airplane airplane = (Airplane) transport;
+            airplane.fly();
+        }
+        transport.move();
     }
 }

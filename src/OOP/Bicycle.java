@@ -5,9 +5,12 @@ public class Bicycle extends Transport {
         super (name);
     }
     @Override
-    public void move(String surface){
-        super.move("bicycle path");
-        setMove(true);
-        System.out.println(getName() + " is moving on the " + surface);
+    public void move(){
+        System.out.println(getName() + " is moving od the bicycle path");
+    }
+
+    @Override
+    public void capacity(int people) {
+        System.out.println(getName() + " can be led only by one cyclist");
     }
 }

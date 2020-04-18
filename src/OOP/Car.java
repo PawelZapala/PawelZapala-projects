@@ -6,8 +6,17 @@ public class Car extends Transport {
     }
 
     @Override
-    public void move(String surface) {
-        super.move(surface);
-        this.setMove(false);
+    public void move() {
+        System.out.println(getName() + " is moving");
+    }
+
+    @Override
+    public void capacity(int people) {
+        int maxPeople = 5;
+        if (people <= maxPeople) {
+            System.out.println("There are " + people + " people in the " + getName());
+        } else {
+            System.out.println(getName() + " can't start because car accommodate only " + maxPeople + " people");
+        }
     }
 }

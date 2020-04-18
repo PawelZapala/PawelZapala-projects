@@ -5,14 +5,16 @@ public class Bus extends PublicTransport {
         super(name);
     }
     @Override
-    public void move(String surface){
-    super.move("road");
-    setMove(true);
-        System.out.println(getName() + " is moving on the " + surface);
+    public void move(){
     }
+
     @Override
-    public void capacity(int people){
-        super.capacity(25);
-        System.out.println(getName() + " can accommodate " + people + " people");
+    public void passengers(int people) {
+        int maxPeople = 25;
+        if (people <= maxPeople){
+            System.out.println(getName() + " have " + people + " passengers inside");
+        }else{
+            System.out.println(getName() + " can accommodate only " + maxPeople + " passengers");
+        }
     }
 }

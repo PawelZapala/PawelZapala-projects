@@ -5,12 +5,16 @@ public class Tram extends PublicTransport {
         super(name);
     }
     @Override
-    public void move(String surface){
-        super.move("rails");
-        setMove(true);
+    public void move(){
     }
+
     @Override
-    public void capacity(int people){
-        super.capacity(68);
+    public void passengers(int people) {
+        int maxPeople = 68;
+        if (people <= maxPeople){
+            System.out.println(getName() + " have " + people + " passengers inside");
+        }else{
+            System.out.println("The door can't close. There is too many people in the " + getName() + "." + getName() + " can accommodate only " + maxPeople + " passengers");
+        }
     }
 }

@@ -5,14 +5,21 @@ public class Airplane extends PublicTransport {
         super(name);
     }
     @Override
-    public void move(String surface){
-        super.move("Air");
-        this.setMove(true);
-        System.out.println(getName() + " is flying in the " + surface);
+    public void move(){
+        fly();
     }
+
     @Override
-    public void capacity(int people){
-        super.capacity(100);
-        System.out.println(getName() + " can seat " + people + " on board.");
+    public void passengers(int people) {
+        int maxPeople = 100;
+        if (people <= maxPeople){
+            System.out.println(getName() + " have " + people + " passengers on the board");
+        }else{
+            System.out.println(getName() + " can accommodate only " + maxPeople + " passengers");
+        }
+    }
+
+    public void fly() {
+        System.out.println(getName() + " is flying in the air.");
     }
 }

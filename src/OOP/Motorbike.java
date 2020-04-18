@@ -5,8 +5,17 @@ public class Motorbike extends Transport {
         super(name);
     }
     @Override
-    public void move(String surface){
-        super.move("road");
-        setMove(true);
+    public void move(){
+        System.out.println(getName() + " is moving");
+    }
+
+    @Override
+    public void capacity(int people) {
+        int maxPeople = 2;
+        if (people <= maxPeople){
+            System.out.println(getName() + " is using by " + people + " people");
+        } else {
+            System.out.println(getName() + " can't accommodate so many people. Max people is: " + maxPeople);
+        }
     }
 }
