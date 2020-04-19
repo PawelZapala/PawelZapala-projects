@@ -4,6 +4,12 @@ public class Bicycle extends Transport {
     public Bicycle (String name){
         super (name);
     }
+
+    @Override
+    public void tank() {
+        System.out.println(getName() + " doesn't refuel");
+    }
+
     @Override
     public void move(){
         System.out.println(getName() + " is moving od the bicycle path");

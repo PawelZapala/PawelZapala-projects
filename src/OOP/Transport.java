@@ -14,4 +14,7 @@ public class Transport {
     }
     public void capacity (int people){
     }
+    public void tank(){
+        System.out.println(getName() + " is tanking");
+    }
 }

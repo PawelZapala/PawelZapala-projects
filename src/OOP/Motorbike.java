@@ -4,6 +4,7 @@ public class Motorbike extends Transport {
     public Motorbike (String name){
         super(name);
     }
+
     @Override
     public void move(){
         System.out.println(getName() + " is moving");

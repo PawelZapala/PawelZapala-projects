@@ -4,6 +4,7 @@ public class Bus extends PublicTransport {
     public Bus (String name){
         super(name);
     }
+
     @Override
     public void move(){
     }
