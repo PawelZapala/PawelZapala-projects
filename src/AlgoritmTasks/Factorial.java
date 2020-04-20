@@ -1,4 +1,5 @@
 package AlgoritmTasks;
+
 public class Factorial {
     public static long factorial(long n) {
         if (n == 0) {
