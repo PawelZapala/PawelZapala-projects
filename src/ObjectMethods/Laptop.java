@@ -22,8 +22,8 @@ public class Laptop implements Cloneable{
         Laptop clonedLaptop = (Laptop)super.clone();
         clonedLaptop.hardDrive = (HardDrive) hardDrive.clone();
         clonedLaptop.processor = (Processor) processor.clone();
-        return super.clone();
-    }
+        return clonedLaptop;
+}
 
     @Override
     public String toString() {

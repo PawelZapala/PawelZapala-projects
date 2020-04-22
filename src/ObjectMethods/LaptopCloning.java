@@ -10,5 +10,6 @@ public class LaptopCloning extends Object{
         System.out.println(laptop);
         clonedLaptop.name = ("Lenovo");
         System.out.println(clonedLaptop);
+        System.out.println(laptop);
     }
 }
