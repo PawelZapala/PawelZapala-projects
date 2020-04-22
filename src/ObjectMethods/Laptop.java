@@ -19,13 +19,9 @@ public class Laptop implements Cloneable{
 
     @Override
     protected Object clone() throws CloneNotSupportedException {
-        Laptop clonedLaptop = (Laptop) super.clone();
-        clonedLaptop.displaySize = this.displaySize;
-        clonedLaptop.name = this.name;
-        clonedLaptop.ramAmount = this.ramAmount;
-        clonedLaptop.weight = this.weight;
-        clonedLaptop.hardDrive = this.hardDrive;
-        clonedLaptop.processor = this.processor;
+        Laptop clonedLaptop = (Laptop)super.clone();
+        clonedLaptop.hardDrive = (HardDrive) hardDrive.clone();
+        clonedLaptop.processor = (Processor) processor.clone();
         return super.clone();
     }
 

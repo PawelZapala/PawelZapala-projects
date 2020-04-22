@@ -1,6 +1,6 @@
 package ObjectMethods;
 
-public class Processor{
+public class Processor implements Cloneable{
     public String name;
     public double frequency;
     public int numberOfCores;
@@ -9,6 +9,11 @@ public class Processor{
         this.name = name;
         this.frequency = frequency;
         this.numberOfCores = numberOfCores;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 
     @Override

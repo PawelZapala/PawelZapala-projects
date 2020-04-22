@@ -1,6 +1,6 @@
 package ObjectMethods;
 
-public class HardDrive{
+public class HardDrive implements Cloneable{
     public String name;
     public String type;
     public int capacity;
@@ -9,6 +9,11 @@ public class HardDrive{
         this.name = name;
         this.type = type;
         this.capacity = capacity;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 
     @Override

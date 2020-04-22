@@ -7,5 +7,8 @@ public class LaptopCloning extends Object{
         Laptop laptop = new Laptop("ASUS", processor, hardDrive, 15.2, 2, 8);
         Laptop clonedLaptop = (Laptop) laptop.clone();
         System.out.println(clonedLaptop);
+        System.out.println(laptop);
+        clonedLaptop.name = ("Lenovo");
+        System.out.println(clonedLaptop);
     }
 }
