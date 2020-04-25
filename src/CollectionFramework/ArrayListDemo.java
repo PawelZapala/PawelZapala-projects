@@ -15,6 +15,7 @@ public class ArrayListDemo {
 
         var anotherStartPoint = System.currentTimeMillis();
         for (int j = 0; j<n; j++) {
+            list.get(j);
         }
         var anotherEndPoint = System.currentTimeMillis();
         System.out.println(anotherEndPoint-anotherStartPoint);

@@ -12,5 +12,12 @@ public class LinkedListDemo {
         }
         var endPoint = System.currentTimeMillis();
         System.out.println(endPoint-startPoint);
+
+        var anotherStartPoint = System.currentTimeMillis();
+        for (int j = 0; j<n; j++) {
+            list.get(j);
+        }
+        var anotherEndPoint = System.currentTimeMillis();
+        System.out.println(anotherEndPoint-anotherStartPoint);
     }
 }
