@@ -13,6 +13,7 @@ public class UniqueLetters {
         for (String s : chars) {
             uniqueChars.add(s);
         }
+        uniqueChars.remove(" ");
         System.out.println(uniqueChars);
     }
 }
