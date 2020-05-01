@@ -37,6 +37,11 @@ public class Item implements Comparable<Item> {
 
     @Override
     public int compareTo(Item another) {
+        if (this.price < another.price) {
+            return -1;
+        } else if (this.price > another.price) {
+            return 1;
+        }
         return 0;
     }
 

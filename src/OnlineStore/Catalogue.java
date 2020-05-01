@@ -20,14 +20,12 @@ public class Catalogue {
         System.out.println(listOfItems);
 
         listOfItems.sort(new ItemNameComparator());
-        listOfItems.sort(Comparator.naturalOrder());
         System.out.println("Items sorted by name:");
         System.out.println(listOfItems);
-        listOfItems.sort(Comparator.reverseOrder());
+        listOfItems.sort(new ItemPriceComparator().reversed());
         System.out.println("Items sorted by name in reverse order:");
         System.out.println(listOfItems);
 
-        listOfItems.sort(new ItemPriceComparator());
         listOfItems.sort(Comparator.naturalOrder());
         System.out.println("Items sorted from the cheapest to the most expensive:");
         System.out.println(listOfItems);
