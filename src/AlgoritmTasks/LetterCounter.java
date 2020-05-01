@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class LetterCounter {
     public static void counter (String str) {
-        str = str.replace("", "");
+        str = str.replace(" ", "");
         Map counter = new LinkedHashMap<Character, Integer>();
         for (char ch : str.toCharArray()){
             if (counter.containsKey(ch)){
