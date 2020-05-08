@@ -6,7 +6,7 @@ import java.util.Set;
 public class NationalBank{
     private Set<Bank> banks;
 
-    public static NationalBank NATIONAL_BANK = null;
+    public static NationalBank NATIONAL_BANK;
 
     private NationalBank() {
         banks = new HashSet<>();
@@ -17,5 +17,14 @@ public class NationalBank{
             NATIONAL_BANK = new NationalBank();
         }
         return NATIONAL_BANK;
+    }
+
+    public Bank getByName(String name) {
+        //implement the method
+        return null;
+    }
+
+    public void registerBank(Bank bank) {
+        banks.add(bank);
     }
 }
