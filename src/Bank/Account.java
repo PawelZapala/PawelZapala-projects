@@ -31,6 +31,7 @@ public abstract class Account {
     protected void addTransactionLog(String logMessage, LocalDateTime time){
     //TODO: implement the method
     //TODO: include message, time, balance after transaction
+        
 
     }
 
@@ -44,12 +45,16 @@ public abstract class Account {
 
     public abstract BigDecimal applyPercentage();
 
-    public abstract BigDecimal transferMoney(String bankName, int accountNumber, BigDecimal amount);
+    public abstract  BigDecimal transferMoney(String bankName, int accountNumber, BigDecimal amount);
 
 
 
     public BigDecimal getBalance(){
         return balance;
+    }
+
+    public BigDecimal getPercents() {
+        return percents;
     }
 
     @Override

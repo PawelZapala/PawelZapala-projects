@@ -11,8 +11,11 @@ public class CreditAccount extends  Account {
     }
     @Override
     public BigDecimal withDraw(BigDecimal amount) {
-        //implement the method
-        return null;
+        var currentBalance = getBalance().subtract(amount);
+        if (creditLimit.compareTo(currentBalance) < 0) {
+            throw new ReachedCreditLimitException("You don't have enough funds on your Credit Account. Your account balance is " + getBalance());
+        }
+        return currentBalance;
     }
     /**
      * For example current balance is -100 (minus 100)
@@ -26,16 +29,22 @@ public class CreditAccount extends  Account {
     @Override
     public BigDecimal applyPercentage() {
         //TODO: implement the method
-        return null;
+        var currentBalance = getBalance();
+        if (currentBalance.compareTo(BigDecimal.ZERO) < 0) {
+            currentBalance = getBalance().subtract(getBalance().multiply(getPercents()));
+        } if (currentBalance.compareTo(BigDecimal.ZERO) > 0) {
+            return getBalance();
+        }
+        return currentBalance;
     }
 
     @Override
     public BigDecimal transferMoney(String bankName, int accountNumber, BigDecimal amount) {
         //TODO: implement the method
-        getBalance() = getBalance().subtract(amount);
-        if (getBalance() > creditLimit){
+        var currentBalance = getBalance().subtract(amount);
+        if (creditLimit.compareTo(currentBalance) < 0){
             throw new ReachedCreditLimitException("You don't have enough funds on your Credit Account. Your account balance is " + getBalance());
         }
-        return getBalance();
+        return currentBalance;
     }
 }

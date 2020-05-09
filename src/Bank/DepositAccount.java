@@ -11,7 +11,11 @@ public class DepositAccount extends Account {
     @Override
     public BigDecimal withDraw(BigDecimal amount) {
         //implement the method
-        return null;
+        var currentBalance = getBalance().subtract(amount);
+        if (getBalance().compareTo(amount) < 0){
+            throw new NonSufficientFundsException("You don't have enough funds on your Deposit Account. Your account balance is " + getBalance());
+        }
+        return currentBalance;
     }
     /**
      * For example current balance is +100 (plus 100)
@@ -21,13 +25,18 @@ public class DepositAccount extends Account {
     @Override
     public BigDecimal applyPercentage() {
         //TODO: implement the method
-        return null;
+        var currentBalance = getBalance().add(getBalance().multiply(getPercents()));
+        return currentBalance;
     }
 
     @Override
     public BigDecimal transferMoney(String bankName, int accountNumber, BigDecimal amount) {
         //TODO: implement the method
-        return null;
+        var currentBalance = getBalance().subtract(amount);
+        if (getBalance().compareTo(amount)<0){
+            throw new NonSufficientFundsException("You don't have enough funds on your Deposit Account. Your account balance is " + getBalance());
+        }
+        return currentBalance;
     }
 
 }
