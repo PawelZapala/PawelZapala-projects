@@ -42,7 +42,7 @@ public class CreditAccount extends  Account {
     public BigDecimal transferMoney(String bankName, int accountNumber, BigDecimal amount) {
         //TODO: implement the method
         var currentBalance = getBalance().subtract(amount);
-        if (creditLimit.compareTo(currentBalance) < 0){
+        if (currentBalance.compareTo(creditLimit) < 0){
             throw new ReachedCreditLimitException("You don't have enough funds on your Credit Account. Your account balance is " + getBalance());
         }
         return currentBalance;
