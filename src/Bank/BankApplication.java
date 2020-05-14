@@ -19,8 +19,7 @@ public class BankApplication {
     private static void init() {
         NationalBank nb = NationalBank.getInstance();
 
-        Account creditAccount = new CreditAccount(8.0, 1000.00);
-        Account depositAccount = new DepositAccount(3.0);
+
         Bank alior = new Bank(ALIOR_BANK_NAME);
         Bank mbank = new Bank(MBANK_BANK_NAME);
 

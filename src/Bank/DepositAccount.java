@@ -10,33 +10,29 @@ public class DepositAccount extends Account {
 
     @Override
     public BigDecimal withDraw(BigDecimal amount) {
-        if (getBalance().compareTo(amount) >= 0) {
-            var currentBalance = getBalance().subtract(amount);
-            return currentBalance;
-        } else if (getBalance().compareTo(amount) < 0) {
-            throw new NonSufficientFundsException("You don't have enough funds on your Deposit Account. Your account balance is " + getBalance());
+        if (balance.compareTo(amount) >= 0) {
+            balance = balance.subtract(amount);
+            return balance;
+        } else if (balance.compareTo(amount) < 0) {
+            throw new NonSufficientFundsException("You don't have enough funds on your Deposit Account. Your account balance is " + balance);
         }
-        return getBalance();
+        return balance;
     }
-        /**
-         * For example current balance is +100 (plus 100)
-         * percentage is 3%
-         * after applying percentage current balance should be +103
-         */
         @Override
         public BigDecimal applyPercentage () {
-            //TODO: implement the method
-            var currentBalance = getBalance().add(getBalance().multiply(getPercents()));
-            return currentBalance;
+            balance = balance.add(balance.multiply(getPercents()));
+            return balance;
         }
 
         @Override
         public BigDecimal transferMoney (String bankName,int accountNumber, BigDecimal amount){
-            //TODO: implement the method
-            var currentBalance = getBalance().subtract(amount);
-            if (getBalance().compareTo(amount) < 0) {
+            var currentBalance = balance.subtract(amount);
+            if (currentBalance.compareTo(BigDecimal.ZERO) > 0){
+                balance = currentBalance;
+                return balance;
+            }else if (currentBalance.compareTo(BigDecimal.ZERO) < 0) {
                 throw new NonSufficientFundsException("You don't have enough funds on your Deposit Account. Your account balance is " + getBalance());
             }
-            return currentBalance;
+            return balance;
         }
     }

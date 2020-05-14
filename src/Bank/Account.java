@@ -8,7 +8,7 @@ import java.util.Objects;
 
 public abstract class Account {
     private int accountNumber;
-    private BigDecimal balance;
+    protected BigDecimal balance;
     private BigDecimal percents;
 
     private List<String> transactionHistory;
@@ -31,7 +31,6 @@ public abstract class Account {
     protected void addTransactionLog(String logMessage, LocalDateTime time){
     //TODO: implement the method
     //TODO: include message, time, balance after transaction
-        
 
     }
 

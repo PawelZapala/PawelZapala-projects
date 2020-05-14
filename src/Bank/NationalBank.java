@@ -19,8 +19,10 @@ public class NationalBank{
         return NATIONAL_BANK;
     }
 
-    public Bank getByName(String name) {
-        //implement the method
+    public Bank getByName(String name) throws BankNotFoundException {
+        if (!banks.contains(name)) {
+            throw new BankNotFoundException(name + " is not exist");
+        }
         return null;
     }
 

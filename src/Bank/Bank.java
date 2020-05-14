@@ -1,6 +1,5 @@
 package Bank;
 
-import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -18,8 +17,10 @@ public class Bank {
         accounts.add(account);
     }
 
-    public Account getByNumber(int number){
-        //implement the method
+    public Account getByNumber(int number) throws AccountNotFoundException {
+        if (!accounts.contains(number)) {
+            throw new AccountNotFoundException(number + " number account is not exist");
+        }
         return null;
     }
 

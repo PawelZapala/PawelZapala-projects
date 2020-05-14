@@ -11,40 +11,34 @@ public class CreditAccount extends  Account {
     }
     @Override
     public BigDecimal withDraw(BigDecimal amount) {
-        var currentBalance = getBalance().subtract(amount);
-        if (creditLimit.compareTo(currentBalance) < 0) {
-            throw new ReachedCreditLimitException("You don't have enough funds on your Credit Account. Your account balance is " + getBalance());
+        var currentBalance = balance.subtract(amount);
+        if (creditLimit.compareTo(currentBalance) > 0) {
+        balance = currentBalance;
+        } else if (creditLimit.compareTo(balance) < 0) {
+            throw new ReachedCreditLimitException("You don't have enough funds on your Credit Account. Your account balance is " + balance);
         }
-        return currentBalance;
+        return balance;
     }
-    /**
-     * For example current balance is -100 (minus 100)
-     * percentage is 3%
-     * after applying percentage current balance should be -103
-     * <p>
-     * For example current balance is +100 (plus 100)
-     * percentage is 3%
-     * after applying percentage current balance should be still +100
-     */
     @Override
     public BigDecimal applyPercentage() {
-        //TODO: implement the method
-        var currentBalance = getBalance();
-        if (currentBalance.compareTo(BigDecimal.ZERO) < 0) {
-            currentBalance = getBalance().subtract(getBalance().multiply(getPercents()));
-        } if (currentBalance.compareTo(BigDecimal.ZERO) > 0) {
-            return getBalance();
+        if (balance.compareTo(BigDecimal.ZERO) < 0) {
+            balance = balance.subtract(balance.multiply(getPercents()));
+        } else if (balance.compareTo(BigDecimal.ZERO) > 0) {
+            return balance;
         }
-        return currentBalance;
+        return balance;
+
     }
 
     @Override
     public BigDecimal transferMoney(String bankName, int accountNumber, BigDecimal amount) {
-        //TODO: implement the method
-        var currentBalance = getBalance().subtract(amount);
-        if (currentBalance.compareTo(creditLimit) < 0){
-            throw new ReachedCreditLimitException("You don't have enough funds on your Credit Account. Your account balance is " + getBalance());
+        var currentBalance = balance.subtract(amount);
+        if (creditLimit.compareTo(currentBalance) < 0) {
+            balance = currentBalance;
+            return balance;
+        } else if (creditLimit.compareTo(currentBalance) > 0){
+            throw new ReachedCreditLimitException("You don't have enough funds on your Credit Account. Your account balance is " + balance);
         }
-        return currentBalance;
+        return balance;
     }
 }
