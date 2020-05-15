@@ -20,10 +20,12 @@ public class NationalBank{
     }
 
     public Bank getByName(String name) throws BankNotFoundException {
-        if (!banks.contains(name)) {
-            throw new BankNotFoundException(name + " is not exist");
+        for (Bank bank : banks) {
+            if (bank.getName() == name) {
+                return bank;
+            }
         }
-        return null;
+        throw new BankNotFoundException(name + " is not exist");
     }
 
     public void registerBank(Bank bank) {

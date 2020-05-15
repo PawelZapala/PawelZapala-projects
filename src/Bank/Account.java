@@ -18,26 +18,27 @@ public abstract class Account {
     public Account(BigDecimal percents) {
         balance = BigDecimal.ZERO;
         accountNumber = ++lastAccountNumber;
-        this.percents = percents;
+        this.percents = percents.divide(BigDecimal.valueOf(100));
         transactionHistory = new ArrayList<>();
 
     }
 
     public BigDecimal topUp(BigDecimal amount) {
         balance = balance.add(amount);
+        addTransactionLog("Top up account in the amount of: " + amount, LocalDateTime.now());
         return balance;
     }
 
     protected void addTransactionLog(String logMessage, LocalDateTime time){
-    //TODO: implement the method
-    //TODO: include message, time, balance after transaction
+        transactionHistory.add("LOG MESSAGE: " + logMessage + " TIME: " + time.toString() + " CURRENT BALANCE: " + balance + "PLN");
+    }
 
+    public int getAccountNumber() {
+        return accountNumber;
     }
 
     public List<String> getTransactionHistory() {
-        //TODO: implement the method
-        //TODO: return COPY(!!!) of the history
-        return null;
+        return List.copyOf(transactionHistory);
     }
 
     public abstract BigDecimal withDraw(BigDecimal amount);

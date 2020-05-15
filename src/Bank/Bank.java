@@ -18,10 +18,16 @@ public class Bank {
     }
 
     public Account getByNumber(int number) throws AccountNotFoundException {
-        if (!accounts.contains(number)) {
-            throw new AccountNotFoundException(number + " number account is not exist");
+        for (Account account : accounts) {
+            if (account.getAccountNumber() == number) {
+                return account;
+            }
         }
-        return null;
+            throw new AccountNotFoundException(number + " number account is not exist");
+    }
+
+    public String getName() {
+        return name;
     }
 
     @Override
