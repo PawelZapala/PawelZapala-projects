@@ -95,6 +95,64 @@ public class BankApplication {
         Account mbankCredit = new CreditAccount(BigDecimal.valueOf(8), BigDecimal.valueOf(5_000));
         mbank.addAccount(mbankCredit);
         mbank.addAccount(mbankDeposit);
+
+        try {
+            mbankCredit.withDraw(BigDecimal.valueOf(500));
+            System.out.println(mbankCredit.balance);
+        }catch (ReachedCreditLimitException e) {
+            System.out.println(e.getMessage());
+        }
+        mbankCredit.topUp(BigDecimal.valueOf(1000));
         System.out.println(mbankCredit.balance);
+        try {
+            mbankCredit.transferMoney("mbank", 10, BigDecimal.valueOf(1000));
+            System.out.println(mbankCredit.balance);
+        } catch (ReachedCreditLimitException e) {
+            System.out.println(e.getMessage());
+        }
+        mbankCredit.applyPercentage();
+        System.out.println(mbankCredit.balance);
+        try {
+            mbankCredit.withDraw(BigDecimal.valueOf(15000));
+            System.out.println(mbankCredit.balance);
+        } catch (ReachedCreditLimitException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            mbankCredit.withDraw(BigDecimal.valueOf(1500));
+            System.out.println(mbankCredit.balance);
+        } catch (ReachedCreditLimitException e) {
+            System.out.println(e.getMessage());
+        }
+
+        mbankDeposit.topUp(BigDecimal.valueOf(1000));
+        try {
+            mbankDeposit.withDraw(BigDecimal.valueOf(500));
+            System.out.println(mbankDeposit.balance);
+        }catch (NonSufficientFundsException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            mbankDeposit.transferMoney("mbank", 10, BigDecimal.valueOf(1000));
+            System.out.println(mbankDeposit.balance);
+        } catch (NonSufficientFundsException e) {
+            System.out.println(e.getMessage());
+        }
+        mbankDeposit.applyPercentage();
+        System.out.println(mbankDeposit.balance);
+        try {
+            mbankDeposit.withDraw(BigDecimal.valueOf(15000));
+            System.out.println(mbankDeposit.balance);
+        } catch (NonSufficientFundsException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            mbankDeposit.withDraw(BigDecimal.valueOf(1500));
+            System.out.println(mbankDeposit.balance);
+        } catch (NonSufficientFundsException e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println(mbankCredit.getTransactionHistory());
+        System.out.println(mbankDeposit.getTransactionHistory());
     }
 }
