@@ -8,13 +8,6 @@ public class BankApplication {
 
     public static void main(String[] args) {
         init();
-
-
-        //TODO: perform topUp operations with accounts
-        //TODO: perform withDraw operations with accounts
-        //TODO: perform transferMoney between different accounts
-        //TODO: perform apply percentage on different accounts
-        //TODO: cover all the cases, not positive only
     }
 
     private static void init() {
