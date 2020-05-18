@@ -39,11 +39,27 @@ public enum DayOfWeek {
 
     public static boolean isWeekend(String dayName) {
         for (DayOfWeek dayOfWeek : values()) {
-            if (!dayOfWeek.workingDay){
-                return dayName.equals(true);
+            if (dayName.equals(dayOfWeek.englishName) || dayName.equals(dayOfWeek.polishName)){
+                return !dayOfWeek.isWorkingDay();
             }
         }
         throw new IllegalArgumentException();
+    }
+
+    public static void getWeekend () {
+        for (DayOfWeek dayOfWeek : DayOfWeek.values()) {
+            if(!dayOfWeek.isWorkingDay()){
+                System.out.println(dayOfWeek);
+            }
+        }
+    }
+
+    public static void getWorkingDays () {
+        for (DayOfWeek dayOfWeek : DayOfWeek.values()) {
+            if(dayOfWeek.isWorkingDay()){
+                System.out.println(dayOfWeek);
+            }
+        }
     }
 
     public String getEnglishName() {
