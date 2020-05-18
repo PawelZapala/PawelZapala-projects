@@ -37,10 +37,10 @@ public enum DayOfWeek {
         throw new IllegalArgumentException("There is no day of week \"" + englishName + "\" in english");
     }
 
-    public static boolean isWeekend() {
+    public static boolean isWeekend(String dayName) {
         for (DayOfWeek dayOfWeek : values()) {
-            if (dayOfWeek.workingDay){
-                return true;
+            if (!dayOfWeek.workingDay){
+                return dayName.equals(true);
             }
         }
         throw new IllegalArgumentException();
