@@ -1,7 +1,5 @@
 package Enums;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.EnumSet;
 
 public enum DayOfWeek {
