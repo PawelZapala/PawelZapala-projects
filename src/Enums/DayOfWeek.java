@@ -1,5 +1,9 @@
 package Enums;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.EnumSet;
+
 public enum DayOfWeek {
     MON ("Monday", "Poniedziałek", true),
     TUE ("Tuesday", "Wtorek", true),
@@ -37,29 +41,18 @@ public enum DayOfWeek {
         throw new IllegalArgumentException("There is no day of week \"" + englishName + "\" in english");
     }
 
-    public static boolean isWeekend(String dayName) {
+    public static EnumSet<DayOfWeek> getWorkingDays () {
+        EnumSet<DayOfWeek> workingDays = EnumSet.noneOf(DayOfWeek.class);
         for (DayOfWeek dayOfWeek : values()) {
-            if (dayName.equals(dayOfWeek.englishName) || dayName.equals(dayOfWeek.polishName)){
-                return !dayOfWeek.isWorkingDay();
-            }
-        }
-        throw new IllegalArgumentException();
-    }
-
-    public static void getWeekend () {
-        for (DayOfWeek dayOfWeek : DayOfWeek.values()) {
-            if(!dayOfWeek.isWorkingDay()){
-                System.out.println(dayOfWeek);
-            }
-        }
-    }
-
-    public static void getWorkingDays () {
-        for (DayOfWeek dayOfWeek : DayOfWeek.values()) {
             if(dayOfWeek.isWorkingDay()){
-                System.out.println(dayOfWeek);
+                workingDays.add(dayOfWeek);
             }
         }
+        return workingDays;
+    }
+
+    public static EnumSet<DayOfWeek> getWeekend () {
+        return EnumSet.complementOf(getWorkingDays());
     }
 
     public String getEnglishName() {
@@ -74,4 +67,7 @@ public enum DayOfWeek {
         return workingDay;
     }
 
+    public boolean isWeekend () {
+        return !workingDay;
+    }
 }

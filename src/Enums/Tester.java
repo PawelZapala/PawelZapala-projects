@@ -3,24 +3,27 @@ package Enums;
 public class Tester {
     public static void main(String[] args) {
 
-        DayOfWeek d = DayOfWeek.valueOf("MON");
-        System.out.println(d);
+        System.out.println(DayOfWeek.fromEnglishName("Monday"));
+        System.out.println(DayOfWeek.fromEnglishName("Sunday"));
 
-        System.out.println(DayOfWeek.isWeekend("Sunday"));
-        System.out.println(DayOfWeek.isWeekend("Poniedziałek"));
-        System.out.println(DayOfWeek.isWeekend("Sobota"));
+        System.out.println("===============");
+
+        System.out.println(DayOfWeek.fromPolishName("Środa"));
+        System.out.println(DayOfWeek.fromPolishName("Piątek"));
+
+        System.out.println("===============");
+
+        System.out.println("Weekend days: " + DayOfWeek.getWeekend());
+
+        System.out.println("=================");
+
+        System.out.println("Working days: " + DayOfWeek.getWorkingDays());
+
+        System.out.println("================");
 
 
-        d = DayOfWeek.fromEnglishName("Tuesday");
-        System.out.println(d);
-
-        d = DayOfWeek.fromPolishName("Poniedziałek");
-        System.out.println(d);
-
-        System.out.println("=========");
-
-        DayOfWeek.getWeekend();
-        System.out.println("==========");
-        DayOfWeek.getWorkingDays();
+        for (DayOfWeek dayOfWeek : DayOfWeek.values()) {
+            System.out.println(dayOfWeek.isWeekend());
+        }
     }
 }
