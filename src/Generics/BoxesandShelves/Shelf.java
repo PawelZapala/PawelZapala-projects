@@ -1,9 +1,25 @@
 package Generics.BoxesandShelves;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
-public class Shelf {
+public class Shelf<T> {
+    Set<Box<? extends T>> boxes = new HashSet<>();
 
-    ArrayList<Box> boxes = new ArrayList<>();
+    public Shelf() {
+
+    }
+
+    public void add(Box<? extends T> box) {
+        boxes.add(box);
+    }
+
+    @Override
+    public String toString() {
+        return "Shelf"+ boxes;
+    }
+
+    public Set<Box<? extends T>> getBoxes() {
+        return boxes;
+    }
 }
