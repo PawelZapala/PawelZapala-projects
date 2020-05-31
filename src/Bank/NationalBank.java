@@ -1,6 +1,8 @@
 package Bank;
 
+import javax.swing.text.html.Option;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 public class NationalBank{
@@ -19,13 +21,14 @@ public class NationalBank{
         return NATIONAL_BANK;
     }
 
-    public Bank getByName(String name) throws BankNotFoundException {
+    public Optional<Bank> getByName(String name) {
         for (Bank bank : banks) {
             if (bank.getName() == name) {
-                return bank;
+                return Optional.of(bank);
             }
         }
-        throw new BankNotFoundException(name + " is not exist");
+        return Optional.empty();
+        //throw new BankNotFoundException(name + " is not exist");
     }
 
     public void registerBank(Bank bank) {

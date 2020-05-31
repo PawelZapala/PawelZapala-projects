@@ -2,6 +2,7 @@ package Bank;
 
 import java.util.HashSet;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 public class Bank {
@@ -17,13 +18,14 @@ public class Bank {
         accounts.add(account);
     }
 
-    public Account getByNumber(int number) throws AccountNotFoundException {
+    public Optional <Account> getByNumber(int number){
         for (Account account : accounts) {
             if (account.getAccountNumber() == number) {
-                return account;
+                return Optional.of(account);
             }
         }
-            throw new AccountNotFoundException(number + " number account is not exist");
+            return Optional.empty();
+        //throw new AccountNotFoundException(number + " number account is not exist");
     }
 
     public String getName() {
