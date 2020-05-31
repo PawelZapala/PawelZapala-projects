@@ -15,11 +15,12 @@ public class UserName {
 
         List<Person> people = List.of(p1,p2,p3,p4,p5,p6);
 
-        System.out.println(new UserName().userName(p1));
-
-    }
+        for(Person person : people) {
+                System.out.println(new UserName().userName(person));
+            }
+        }
 
     private String userName(Person person) {
-        return (person.getFirstName().charAt(0) + person.getLastName().toLowerCase() + Optional.ofNullable(person.getBirthday()).orElse(LocalDate.now()).getYear());
+        return (person.getFirstName().toLowerCase().charAt(0) + person.getLastName().toLowerCase() + Optional.ofNullable(person.getBirthday()).orElse(LocalDate.now()).getYear());
     }
 }
