@@ -25,6 +25,19 @@ public class BankApplication {
         alior.addAccount(aliorCredit);
         alior.addAccount(aliorDeposit);
 
+        try {
+            nb.getByName("Santander").orElseThrow(() -> new BankNotFoundException("The bank entered does not exist"));
+        } catch (BankNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            nb.getByName("Alior Bank").orElseThrow(() -> new BankNotFoundException("The bank entered does not exist"));
+        } catch (BankNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+
+
         aliorCredit.topUp(BigDecimal.valueOf(100));
         System.out.println(aliorCredit.balance);
         try {
