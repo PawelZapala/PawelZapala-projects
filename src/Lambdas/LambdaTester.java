@@ -7,23 +7,23 @@ public class LambdaTester{
 
         String originalText = "Some text message";
 
-        String modifiedText = modifyString(originalText, String::toUpperCase);
-        System.out.println(modifiedText);
+        String upperCaseText = modifyString(originalText, String::toUpperCase);
+        System.out.println(upperCaseText);
 
-        modifiedText = modifyString(originalText, String::toLowerCase);
-        System.out.println(modifiedText);
+        String lowerCaseText = modifyString(originalText, String::toLowerCase);
+        System.out.println(lowerCaseText);
 
-        modifiedText = modifyString(originalText, string -> String.valueOf(string.charAt(0)));
-        System.out.println(modifiedText);
+        String firstLetterOfText = modifyString(originalText, string -> String.valueOf(string.charAt(0)));
+        System.out.println(firstLetterOfText);
 
-        modifiedText = modifyString(originalText, string -> String.valueOf(string.charAt(string.length() - 1)));
-        System.out.println(modifiedText);
+        String lastLetterOfText = modifyString(originalText, string -> String.valueOf(string.charAt(string.length() - 1)));
+        System.out.println(lastLetterOfText);
 
-        Integer letterChecker = stringToInteger(originalText, String::length);
-        System.out.println(letterChecker);
+        Integer letterCounter = stringToInteger(originalText, String::length);
+        System.out.println(letterCounter);
 
-        letterChecker = stringToInteger(originalText, string -> string.split(" ").length);
-        System.out.println(letterChecker);
+        Integer wordCounter = stringToInteger(originalText, string -> string.split(" ").length);
+        System.out.println(wordCounter);
 
     }
 
