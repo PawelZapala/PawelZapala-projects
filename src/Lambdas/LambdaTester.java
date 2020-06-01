@@ -5,25 +5,25 @@ import java.util.function.Function;
 public class LambdaTester{
     public static void main(String[] args) {
 
-        String originalString = "Some text message";
+        String originalText = "Some text message";
 
-        String modifiedText = modifyString(originalString, String::toUpperCase);
+        String modifiedText = modifyString(originalText, String::toUpperCase);
         System.out.println(modifiedText);
 
-        modifiedText = modifyString(originalString, String::toLowerCase);
+        modifiedText = modifyString(originalText, String::toLowerCase);
         System.out.println(modifiedText);
 
-        modifiedText = modifyString(originalString, string -> String.valueOf(string.charAt(0)));
+        modifiedText = modifyString(originalText, string -> String.valueOf(string.charAt(0)));
         System.out.println(modifiedText);
 
-        modifiedText = modifyString(originalString, string -> String.valueOf(string.charAt(string.length() - 1)));
+        modifiedText = modifyString(originalText, string -> String.valueOf(string.charAt(string.length() - 1)));
         System.out.println(modifiedText);
 
-        Integer checker = anotherMethod(originalString, String::length);
-        System.out.println(checker);
+        Integer letterChecker = stringToInteger(originalText, String::length);
+        System.out.println(letterChecker);
 
-        checker = anotherMethod(originalString, string -> string.split(" ").length);
-        System.out.println(checker);
+        letterChecker = stringToInteger(originalText, string -> string.split(" ").length);
+        System.out.println(letterChecker);
 
     }
 
@@ -31,7 +31,7 @@ public class LambdaTester{
         return modifier.apply(string);
     }
 
-    private static Integer anotherMethod(String string, Function<String, Integer> function){
+    private static Integer stringToInteger(String string, Function<String, Integer> function){
         return  function.apply(string);
     }
 
