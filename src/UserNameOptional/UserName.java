@@ -11,7 +11,7 @@ public class UserName {
         Person p3 = new Person("Ryszard", "Andrzejewski", LocalDate.of(1976, 9,17));
         Person p4 = new Person("Wojciech", "Sokół", LocalDate.of(1977, 3,11));
         Person p5 = new Person("Piotr", "Siara", LocalDate.of(1983, 9,15));
-        Person p6 = new Person("Jerzy", "Kiler", LocalDate.of(1990, 10,1));
+        Person p6 = new Person("Jerzy", "Kiler", null);
 
         List<Person> people = List.of(p1,p2,p3,p4,p5,p6);
 

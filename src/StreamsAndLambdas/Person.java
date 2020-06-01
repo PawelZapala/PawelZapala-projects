@@ -10,4 +10,12 @@ public class Person {
     private int salary;
     private Address address;
 
+    public Person(String firstName, String lastName, LocalDate birthday, Sex sex, int salary, Address address) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthday = birthday;
+        this.sex = sex;
+        this.salary = salary;
+        this.address = address;
+    }
 }
