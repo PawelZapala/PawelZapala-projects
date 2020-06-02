@@ -1,8 +1,8 @@
 package StreamsAndLambdas;
 
 public enum Sex {
-    MALE("M"),
-    FEMALE("F");
+    MALE("MALE"),
+    FEMALE("FEMALE");
 
     private String sex;
 
