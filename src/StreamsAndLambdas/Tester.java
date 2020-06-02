@@ -3,8 +3,11 @@ package StreamsAndLambdas;
 import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
+import java.util.OptionalDouble;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
 
 public class Tester {
     public static void main(String[] args) {
@@ -80,9 +83,37 @@ public class Tester {
 
         System.out.println("===============");
 
-        List<Integer> avgSalary = people.stream()
-                .map(p -> p.getSalary())
-                .collect(Collectors.toList());
-        System.out.println(avgSalary);
+        OptionalDouble avgSalary = people.stream()
+                .mapToInt(p -> p.getSalary())
+                .average();
+        if (avgSalary.isPresent()){
+            System.out.println("Average salary: ");
+            System.out.println(avgSalary.getAsDouble());
+        }
+
+        System.out.println("===============");
+
+        long numberOfWomenInKrk = people.stream()
+                .filter(p -> p.getAddress().getCity().equals("Kraków"))
+                .filter(p -> p.getSex().equals(Sex.FEMALE))
+                .count();
+        System.out.println("Number of women in Kraków:");
+        System.out.println(numberOfWomenInKrk);
+
+        System.out.println("===============");
+
+        long numberOfMenOver65 = people.stream()
+                .filter(p -> p.getBirthday().isBefore(LocalDate.now().minusYears(65)))
+                .filter(p -> p.getSex().equals(Sex.MALE))
+                .count();
+        System.out.println("Number of men over 65 years old:");
+        System.out.println(numberOfMenOver65);
+
+        System.out.println("===============");
+
+        Optional<LocalDate> oldestPerson = people.stream()
+                .map(p -> p.getBirthday())
+                .min(Comparator.naturalOrder());
+        System.out.println(oldestPerson);
     }
 }
