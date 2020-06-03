@@ -6,17 +6,16 @@ import java.util.List;
 import java.util.Optional;
 import java.util.OptionalDouble;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 
 public class Tester {
     public static void main(String[] args) {
         Person p1 = new Person
-                ("Aleksandra", "Budziosz", LocalDate.of(1994, 7, 30),
+                ("Aleksandra", "Budziosz", LocalDate.of(2002, 7, 30),
                         Sex.FEMALE, 2000, new Address("Kraków"));
 
         Person p2 = new Person
-                ("Robert", "Koza", LocalDate.of(1944, 12, 12),
+                ("Robert", "Koza", LocalDate.of(1964, 12, 12),
                         Sex.MALE, 3500, new Address("Kielce"));
 
         Person p3 = new Person
@@ -41,42 +40,39 @@ public class Tester {
 
         List<Person> people = List.of(p1, p2, p3, p4, p5, p6, p7);
 
-        List<String> menOver65 = people.stream()
-                .filter(p -> p.getBirthday().isBefore(LocalDate.now().minusYears(65)))
+        List<Person> menUnder65 = people.stream()
+                .filter(p -> p.getBirthday().isAfter(LocalDate.now().minusYears(65)))
                 .filter(p -> p.getSex().equals(Sex.MALE))
-                .map(p -> p.getLastName())
-                .sorted(Comparator.reverseOrder())
+                .sorted(Comparator.comparing(Person::getLastName).reversed())
                 .collect(Collectors.toList());
         System.out.println("Men over 65 years old sorted in reverse order by last name: ");
-        System.out.println(menOver65);
+        System.out.println(menUnder65);
 
         System.out.println("===============");
 
-        List<String> femaleSalaryUnder5000 = people.stream()
+        List<Person> femaleSalaryUnder5000 = people.stream()
                 .filter(p -> p.getSalary() < 5000)
                 .filter(p -> p.getSex().equals(Sex.FEMALE))
-                .map(Person::getFirstName)
-                .sorted(Comparator.reverseOrder())
+                .sorted(Comparator.comparing(Person::getFirstName).reversed())
                 .collect(Collectors.toList());
         System.out.println("Females earning less than 5000 PLN");
         System.out.println(femaleSalaryUnder5000);
 
         System.out.println("===============");
 
-        List<LocalDate> peopleUnder18 = people.stream()
+        List<Person> peopleUnder18 = people.stream()
                 .filter(p -> p.getBirthday().isAfter(LocalDate.now().minusYears(18)))
                 .filter(p -> p.getAddress().getCity().equals("Kraków"))
-                .map(Person::getBirthday)
+                .sorted(Comparator.comparing(Person::getBirthday).reversed())
                 .collect(Collectors.toList());
         System.out.println("People under 18 years old from Kraków:");
         System.out.println(peopleUnder18);
 
         System.out.println("===============");
 
-        Stream<Person> stream= people.stream();
-        List<String> outsideOfKrakow = stream
+        List<Person> outsideOfKrakow = people.stream()
                 .filter(p -> !p.getAddress().getCity().equals("Kraków"))
-                .map(Person::getFirstName)
+                .sorted(Comparator.comparing(Person::getFirstName).reversed())
                 .collect(Collectors.toList());
         System.out.println("People outside of Kraków:");
         System.out.println(outsideOfKrakow);
@@ -132,9 +128,12 @@ public class Tester {
 
         System.out.println("===============");
 
-        Boolean aInFirstName = menOver65.stream()
-                .anyMatch(p -> p.);
+        Boolean aInFirstName = peopleUnder18.stream()
+                .anyMatch(p -> p.getFirstName().contains("A"));
         System.out.println(aInFirstName);
 
+        Boolean aInLastName = outsideOfKrakow.stream()
+                .allMatch(p -> p.getLastName().contains("a"));
+        System.out.println(aInLastName);
     }
 }
