@@ -111,9 +111,30 @@ public class Tester {
 
         System.out.println("===============");
 
-        Optional<LocalDate> oldestPerson = people.stream()
-                .map(p -> p.getBirthday())
-                .min(Comparator.naturalOrder());
+        Optional<Person> oldestPerson = people.stream()
+                .min(Comparator.comparing(Person::getBirthday));
+        System.out.println("The oldest person is: ");
         System.out.println(oldestPerson);
+
+        System.out.println("===============");
+
+        Optional<Person> youngestPersonInKrk = people.stream()
+                .filter(p -> p.getAddress().getCity().equals("Kraków"))
+                .max(Comparator.comparing(Person::getBirthday));
+        System.out.println("The youngest person in Kraków is:");
+        System.out.println(youngestPersonInKrk);
+
+        int totalSalary = people.stream()
+                .mapToInt(p -> p.getSalary())
+                .sum();
+        System.out.println("Total salary is:");
+        System.out.println(totalSalary);
+
+        System.out.println("===============");
+
+        Boolean aInFirstName = menOver65.stream()
+                .anyMatch(p -> p.);
+        System.out.println(aInFirstName);
+
     }
 }
